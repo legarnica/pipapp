@@ -1,4 +1,4 @@
-package cl.lherrera.scraper;
+package cl.lherrera.pipapp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
