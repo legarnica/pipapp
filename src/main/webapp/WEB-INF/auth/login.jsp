@@ -10,79 +10,58 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<!-- Bootstrap CSS -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-	crossorigin="anonymous">
+<!-- tailwindcss CSS -->
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 
 <title>Hello, world!</title>
 </head>
 <body>
+<div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-md w-full space-y-8">
+    <div>
+      <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow">
+      <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+        ACCESO AL SISTEMA PIPAPP
+      </h2>
+    </div>
+    <form class="mt-8 space-y-6" action="#" method="POST">
+      <input type="hidden" name="remember" value="true">
+      <div class="rounded-md shadow-sm -space-y-px">
+        <div>
+          <label for="email-address" class="sr-only">Correo electrónico</label>
+          <input 
+          	id="email-address" 
+          	name="email" 
+          	type="email" 
+          	autocomplete="email" required 
+          	class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" 
+          	placeholder="Correo electrónico">
+        </div>
+        <div>
+          <label for="password" class="sr-only">Contraseña</label>
+          <input 
+          	id="webPassword" 
+          	name="webPassword" 
+          	type="password" 
+          	autocomplete="current-password" 
+          	required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" 
+          	placeholder="Password">
+        </div>
+      </div>
 
-	<div class="container">
-		<div class="row">
-			<div class="col">
-				<h1>Ingreso al sistema</h1>
-			</div>
-		</div>
-
-
-		<div class="row">
-			<div class="col">
-
-				<c:if test="${error}">
-					<div class="alert alert-warning alert-dismissible fade show"
-						role="alert">
-						<strong>¡Error!</strong> credenciales inválidas
-						<button type="button" class="close" data-dismiss="alert"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-				</c:if>
-
-				<form action="<c:url value='/login' />" method="post">
-					<div class="form-group">
-						<label for="email">Correo electrónico</label> 
-						<input
-							id="email" 
-							name="email" 
-							type="email" 
-							class="form-control" 
-							aria-describedby="emailHelp" 
-							placeholder="ingrese su correo"> 
-					</div>
-					<div class="form-group">
-						<label for="exampleInputPassword1">Contraseña</label> 
-						<input
-							id="webPassword"
-							name="webPassword" 
-							type="password" 
-							class="form-control" 
-							
-							placeholder="Password">
-					</div>
-
-					<button type="submit" class="btn btn-secondary btn-lg btn-block">Ingresar</button>
-				</form>
-
-			</div>
-		</div>
-	</div>
-
-	<!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-		crossorigin="anonymous"></script>
+      <div>
+        <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+            <!-- Heroicon name: solid/lock-closed -->
+            <svg class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+            </svg>
+          </span>
+          INICIAR SESIÓN
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
 </body>
 </html>
