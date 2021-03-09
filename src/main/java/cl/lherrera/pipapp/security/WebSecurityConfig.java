@@ -34,7 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	/**
 	 * Evita el error: java.lang.IllegalArgumentException: There is no
 	 * PasswordEncoder mapped for the id "null", además de ser utilizado a veces
-	 * para setear usuarios en memoria
+	 * para setear usuarios en memoria, aunque este no es el caso.
 	 * 
 	 */
 	@Override
@@ -60,6 +60,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         .antMatchers("/admin/**").hasRole("ADMIN") // no es ROLE_ADMIN ni ROLE_USER (sin el ROLE_)
         .antMatchers("/h2/**").permitAll()
         .antMatchers("/login").permitAll()
+        .antMatchers("/img/**").permitAll() // ya que el html internamente hace un /img...
         // permite el uso de los recursos estáticos
         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
         // para todo el resto de peticiones, permite, si está logeado

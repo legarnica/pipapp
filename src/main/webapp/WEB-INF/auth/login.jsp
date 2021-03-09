@@ -4,108 +4,132 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
+​
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login material desing</title>
-
-    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
-    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
-    <style>
-        body{
-            font-family: 'Roboto', sans-serif;
-        }
-        .expandido {
-            width: 100%;
-        }
-        .centrado {
-            text-align: center;
-        }
-        .margen-y {
-            margin-top:2em;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>Material Design for Bootstrap</title>
+  <!-- MDB icon -->
+  <link rel="icon" href="<c:url value = '/img/logo.png'/>" type="image/x-icon" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+  <!-- MDB -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet" />
 </head>
-
+​
 <body>
+  <!-- Start your project here-->
+  <div class="container-fluid">
 
-    <header class="mdc-top-app-bar mdc-top-app-bar--short">
-        <div class="mdc-top-app-bar__row">
-          <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-            <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</button>
-            <span class="mdc-top-app-bar__title">
-                PIPAPP <span class="material-icons">touch_app</span>
-            </span>
-          </section>
-          <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-            <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Bookmark this page">bookmark</button>
-          </section>
-        </div>
-      </header>
-      <main class="mdc-top-app-bar--short-fixed-adjust">
-          <h3 class="centrado">ACCESO AL SISTEMA</h1>
-
-        <form action="<c:url value='/login' />" method="post">
-
-            <label class="mdc-text-field mdc-text-field--filled mdc-text-field--with-leading-icon margen-y expandido">
-                <span class="mdc-text-field__ripple"></span>
-                <span class="mdc-floating-label " id="my-label-id">Correo electrónico</span>
-                <i class="material-icons mdc-text-field__icon mdc-text-field__icon--leading" tabindex="0" role="button">email</i>
-                <input
-                	name="email"  
-                	class="mdc-text-field__input" 
-                	type="text" 
-                	aria-labelledby="my-label-id" 
-                	required autocomplete="current-email">
-                <span class="mdc-line-ripple"></span>
-            </label>
-            
-            <label class="mdc-text-field mdc-text-field--filled mdc-text-field--with-leading-icon margen-y expandido">
-                <span class="mdc-text-field__ripple"></span>
-                <span class="mdc-floating-label" id="my-label-id">Contraseña</span>
-                <i class="material-icons mdc-text-field__icon mdc-text-field__icon--leading" tabindex="0" role="button">password</i>
-                <input
-                	name="webPassword" 
-                	class="mdc-text-field__input" 
-                	type="password" 
-                	aria-labelledby="my-label-id" 
-                	required minlength="4" 
-                	autocomplete="current-password">
-                <span class="mdc-line-ripple"></span>
-            </label>
-
-            <div class="mdc-touch-target-wrapper ">
-                <button class="mdc-button mdc-button--outlined margen-y expandido">
-                    <span class="mdc-button__ripple"></span>
-                    <span class="mdc-button__label">Ingresar</span>
-                  </button>
-              </div>
-        </form>
-        
-
-      </main>
+    <!-- NAVBAR -->
+    <div class="row">
+      <div class="col-12">
+        <nav class="navbar fixed-top navbar-light " style="background-color: #e3f2fd;">
+          <a class="navbar-brand" href="#">
+            <img src="<c:url value = '/img/logo.png'/>" width="50" height="50" class="mx-3 d-inline-block align-content-center" alt="">
+            <span class="chakra-petch-font">PIPAPP</span><i class="fas fa-grip-lines-vertical mx-2"></i>LOGIN
+          </a>
+        </nav>
+      </div>
     </div>
+    <div class="row my-5">
+      <div class="col">
+      </div>
+    </div>
+    <!-- NAVBAR #-->
 
+	<!-- ERROR MESSAJE -->
+	<c:if test="${error}">
+    <div class="row">
+      <div class="col-12">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <strong>ACCESO INCORRECTO</strong>. 
+          <p>Las credenciales son incorrectas.</p>
+          <p>Por favor intente nuevamente.</p>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      </div>
+    </div>
+	</c:if>
+	<!-- ERROR MESSAJE #-->
 
+	<!-- CARD-LOGIN -->
+    <div class="row">
+      <div class="col-12">
+        <div class="card" >
+          <div class="card-body">
+            <h5 class="card-title">Ingreso al sistema</h5>
+            <form action="#" method="POST">
+              <div class="form-outline">
+                <input 
+                  type="email" 
+                   name="email"
+                  id="email-id" 
+                  required
+                  class="form-control form-control-lg my-4" />
+                <label class="form-label" for="email-id">Correo electrónico</label>
+              </div>
 
-    <script type="text/javascript">
-        // js para el menú superior
-        mdc.topAppBar.MDCTopAppBar.attachTo(document.querySelector('.mdc-top-app-bar'))
-        // js, para todas las llamadas al los textFields, como son más de una se usa un map
-        const MDCTextField = mdc.textField.MDCTextField;
-        const textFields = [].map.call(document.querySelectorAll('.mdc-text-field'), el => new MDCTextField(el));
-        // Js, para el menú aceptar
-        mdc.ripple.MDCRipple.attachTo(document.querySelector('.mdc-button'))
+              <div class="form-outline">
+                <input 
+                  type="password"
+                  name="webPassword" 
+                  id="password-id" 
+                  required
+                  class="form-control form-control-lg my-4" />
+                <label class="form-label" for="email-id">Contraseña</label>
+              </div>
 
-        
+              <div id="boton-wrapper" class="d-grid gap-1">
+                <button
+                	onclick="doLogin(event)"
+                	type="button" 
+                	class="btn btn-outline-dark" data-mdb-ripple-color="dark">
+                  Siguiente
+                </button>
+              </div>
 
-    </script>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- CARD-LOGIN #-->
+</div>
+  <!-- End your project here-->
+​
+  <!-- MDB -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.js"></script>
 
+  <!-- Custom scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+  /**
+   * SE INTEGRA ESTE JS, PARA QUE PUEDA CERRAR EL ALERT, YA QUE LAS ALERTAS, SON DE USO
+   * DE LA VERSIÓN MDB5 PRO. PERO SI AGREGAMOS EL JS DE BOOTSTRAP, PODEMOS
+   * USARLO SIN QUE A PRIMERA VISTA INTERRUMPA EL FUNCIONAMIENTO DE
+   * MDB5, NO FUE NECESARIO IMPORTAR BOOTSTRAP CSS.
+   * */
+  </script>
+  <script type="text/javascript">
+  const elementoBtnCargando = `
+	  	<button type="submit" class="btn btn-outline-dark" data-mdb-ripple-color="dark">
+          <div class="spinner-grow spinner-grow-sm" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </button>
+	  	`
+
+  	const doLogin = (event) => {
+  	  const formElement = event.target.form; 
+
+  	  document.querySelector(`#boton-wrapper`).innerHTML = elementoBtnCargando;
+  	  formElement.submit()
+  	}
+  	
+  </script>
 </body>
-
+​
 </html>
