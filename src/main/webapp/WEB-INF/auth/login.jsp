@@ -2,66 +2,110 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-<!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login material desing</title>
 
-<!-- tailwindcss CSS -->
-<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-
-<title>Hello, world!</title>
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+    <style>
+        body{
+            font-family: 'Roboto', sans-serif;
+        }
+        .expandido {
+            width: 100%;
+        }
+        .centrado {
+            text-align: center;
+        }
+        .margen-y {
+            margin-top:2em;
+        }
+    </style>
 </head>
-<body>
-<div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-  <div class="max-w-md w-full space-y-8">
-    <div>
-      <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow">
-      <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
-        ACCESO AL SISTEMA PIPAPP
-      </h2>
-    </div>
-    <form class="mt-8 space-y-6" action="#" method="POST">
-      <input type="hidden" name="remember" value="true">
-      <div class="rounded-md shadow-sm -space-y-px">
-        <div>
-          <label for="email-address" class="sr-only">Correo electrónico</label>
-          <input 
-          	id="email-address" 
-          	name="email" 
-          	type="email" 
-          	autocomplete="email" required 
-          	class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" 
-          	placeholder="Correo electrónico">
-        </div>
-        <div>
-          <label for="password" class="sr-only">Contraseña</label>
-          <input 
-          	id="webPassword" 
-          	name="webPassword" 
-          	type="password" 
-          	autocomplete="current-password" 
-          	required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" 
-          	placeholder="Password">
-        </div>
-      </div>
 
-      <div>
-        <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-          <span class="absolute left-0 inset-y-0 flex items-center pl-3">
-            <!-- Heroicon name: solid/lock-closed -->
-            <svg class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
-            </svg>
-          </span>
-          INICIAR SESIÓN
-        </button>
-      </div>
-    </form>
-  </div>
-</div>
+<body>
+
+    <header class="mdc-top-app-bar mdc-top-app-bar--short">
+        <div class="mdc-top-app-bar__row">
+          <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+            <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">menu</button>
+            <span class="mdc-top-app-bar__title">
+                PIPAPP <span class="material-icons">touch_app</span>
+            </span>
+          </section>
+          <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+            <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Bookmark this page">bookmark</button>
+          </section>
+        </div>
+      </header>
+      <main class="mdc-top-app-bar--short-fixed-adjust">
+          <h3 class="centrado">ACCESO AL SISTEMA</h1>
+
+        <form action="<c:url value='/login' />" method="post">
+
+            <label class="mdc-text-field mdc-text-field--filled mdc-text-field--with-leading-icon margen-y expandido">
+                <span class="mdc-text-field__ripple"></span>
+                <span class="mdc-floating-label " id="my-label-id">Correo electrónico</span>
+                <i class="material-icons mdc-text-field__icon mdc-text-field__icon--leading" tabindex="0" role="button">email</i>
+                <input
+                	name="email"  
+                	class="mdc-text-field__input" 
+                	type="text" 
+                	aria-labelledby="my-label-id" 
+                	required autocomplete="current-email">
+                <span class="mdc-line-ripple"></span>
+            </label>
+            
+            <label class="mdc-text-field mdc-text-field--filled mdc-text-field--with-leading-icon margen-y expandido">
+                <span class="mdc-text-field__ripple"></span>
+                <span class="mdc-floating-label" id="my-label-id">Contraseña</span>
+                <i class="material-icons mdc-text-field__icon mdc-text-field__icon--leading" tabindex="0" role="button">password</i>
+                <input
+                	name="webPassword" 
+                	class="mdc-text-field__input" 
+                	type="password" 
+                	aria-labelledby="my-label-id" 
+                	required minlength="4" 
+                	autocomplete="current-password">
+                <span class="mdc-line-ripple"></span>
+            </label>
+
+            <div class="mdc-touch-target-wrapper ">
+                <button class="mdc-button mdc-button--outlined margen-y expandido">
+                    <span class="mdc-button__ripple"></span>
+                    <span class="mdc-button__label">Ingresar</span>
+                  </button>
+              </div>
+        </form>
+        
+
+      </main>
+    </div>
+
+
+
+    <script type="text/javascript">
+        // js para el menú superior
+        mdc.topAppBar.MDCTopAppBar.attachTo(document.querySelector('.mdc-top-app-bar'))
+        // js, para todas las llamadas al los textFields, como son más de una se usa un map
+        const MDCTextField = mdc.textField.MDCTextField;
+        const textFields = [].map.call(document.querySelectorAll('.mdc-text-field'), el => new MDCTextField(el));
+        // Js, para el menú aceptar
+        mdc.ripple.MDCRipple.attachTo(document.querySelector('.mdc-button'))
+
+        
+
+    </script>
+
 </body>
+
 </html>
