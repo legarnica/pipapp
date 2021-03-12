@@ -1,9 +1,14 @@
 package cl.lherrera.pipapp.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -29,6 +34,18 @@ public class NavigationController {
 	public String goHome() {
 		String targetPath = "home/index";
 		log.info("::goHome():: - targetPath: {}.", targetPath);
+		return targetPath;
+	}
+	
+	/**
+	 * Go to the add page
+	 * 
+	 * @return {@literal "home/agregar" view}
+	 */
+	@GetMapping("/agregar")
+	public String goAgregar() {
+		String targetPath = "home/agregar";
+		log.info("::goAgregar():: - targetPath: {}.", targetPath);
 		return targetPath;
 	}
 
@@ -67,5 +84,34 @@ public class NavigationController {
 	public String doForbidden() {
 		return "error/403";
 	}
+	
+
+	@PostMapping("/detalle")
+	public String postDetalle(ModelMap modelo, @RequestParam String sku) {
+		String goBackPath = "/agregar";
+		String targetPath = "home/detalle";
+		log.info("::postDetalle - params: sku: {}.", sku);
+		modelo.addAttribute("sku", sku);
+		modelo.addAttribute("goBackPath", goBackPath);
+		
+		return targetPath;
+	}
+	
+	@GetMapping("/detalle")
+	public String getDetalle(ModelMap modelo, @RequestParam String sku) {
+		String goBackPath = "/";
+		String targetPath = "home/detalle";
+		log.info("::postDetalle - params: sku: {}.", sku);
+		modelo.addAttribute("sku", sku);
+		modelo.addAttribute("goBackPath", goBackPath);
+		
+		return targetPath;
+	}	
+	
+	
+	
+	
+	
+	
 
 }

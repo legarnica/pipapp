@@ -32,8 +32,10 @@ public class CustomAuthenticationHandler implements AuthenticationSuccessHandler
 
 	/**
 	 * String representation of normal user first ui-page path
+	 * luego del login, gracias a esta clase, el rol
+	 * usuario, se viene directo a esta uri
 	 */
-	public static final String USER_HOME_PATH = "/home";
+	public static final String USER_HOME_PATH = "/";
 
 	/**
 	 * Called when a user has been successfully authenticated.
